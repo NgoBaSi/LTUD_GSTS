@@ -1,8 +1,17 @@
 --Tao co so du lieu:
-create database QuanLyNhaHang
+create database QLNhaHangTiecCuoi
 go
 --Su dung co so du lieu QLNH:
-use QuanLyNhaHang
+use QLNhaHangTiecCuoi
+go
+
+--Tao bang Login:
+create table Login
+(
+   Username nvarchar(50) 
+   ,Pass nvarchar(50)
+)
+
 go
 --Tao bang NhanVien:
 create table NhanVien(
@@ -17,73 +26,85 @@ create table NhanVien(
 	,GhiChu nvarchar(50)
 	)
 go
---Tao bang Login:
-create table Login
-(
-	id int primary key
-   ,Username nvarchar(50) 
-   ,Pass nvarchar(50)
-   ,Quyen nvarchar (50)
-)
-
-go
---Tao bang Daily:
-create table Daily
-(
-	 MaDL char(10) primary key
-	,STT integer 
-	,TenDaily nvarchar(50)
-	,DiaChi nvarchar(50)
-	,SDT nvarchar(50)
-	,CungCap nvarchar(50)
-	,GhiChu nvarchar(50)
-)
-go
---Tao Bang bang HoaDon:
-create table HoaDon(
-	MaHD char(10) primary key
-   ,NgayLap datetime
-   ,TenBan nvarchar(50)
-   ,SoKhach integer
-   ,TongTien integer
-   ,TienKhachTra integer
-   ,TienConDu integer
- )
-go
 --Tao bang KhachHang:
 create table KhachHang(
     MaKH char(10) primary key
-   ,CMND nvarchar(50) 
    ,TenKH nvarchar(50)
+   ,NgaySinh nvarchar(50)
+   ,GioiTinh nvarchar (50)
    ,DiaChi nvarchar(50)
+   ,Email nvarchar (50)
    ,SDT nvarchar(50)
    ,GhiChu nvarchar(50)
 )
 go
-
---Tao bang Menu:
-create table Menu
+--Tao bang Thong tin hop dong:
+create table ThongTinHopDong
 (
-	MaMA nvarchar(50) primary key
-   ,TenMA nvarchar(50)
-   ,Gia integer
-   ,ChiPhi integer
-   ,DonVi nvarchar(50)
+	 MaHD nvarchar(20) primary key
+	,NgayLap datetime 
+	,MaKH nvarchar(50)
+	,HoTenKH nvarchar(50)
+	,DiaChi nvarchar(50)
+	,SDT integer
+	,Email nvarchar(50)
+	,NgayTC datetime
+	,SLBan integer
+	,SLNV integer
 )
 go
---Tao bang ThuChi
-create table ThuChi
+--Tao bang thong tin thuc don
+create table ThongTinThucDon
 (
-	STT integer primary key
-   ,Ngay datetime
-   ,Thu integer
-   ,Chi integer
-   ,NhanVien nvarchar(50)
-   ,GhiChu nvarchar(50)
+	MaTD nvarchar(20) primary key
+	,MonKV datetime 
+	,Mon1 nvarchar(50)
+	,Mon2 nvarchar(50)
+	,Mon3 nvarchar(50)
+	,Lau nvarchar(50)
+	,TrangMieng nvarchar(50)
+	,Bia nvarchar(50)
+	,NuocNgot nvarchar(50)
 )
+go
+--Tao bang thong tin khuyen mai
+create table ThongTinKM
+(
+	BiaNuocngot bit
+	,HoaThungtien bit
+)
+go
+--Tao bang thong tin dich vu
+create table ThongTinDV
+(
+	VuCong bit
+	,PhaoHoa bit
+	,ThapLy bit
+	,MC bit
+	,CaSi bit
+	,BanNhac bit
+)
+go
+--Tao bang tinh tien hop dong
+create table TinhTien
+(
+	TienCoc int
+	,PhiDV int
+	,PhiTiec int
+	,TongTien int
+)
+go	
+--Tao Bang bang HoaDon:
+create table HoaDon(
+	MaHD char(10) primary key
+   ,NgayThanhToan datetime
+   ,TongTien nvarchar(50)
+   ,TienKhachTra integer
+   ,TienConDu integer
+ )
 go
 --Tao bang DichVu:
-create table DichVu
+/*create table DichVu
 (
 	MaDV nvarchar(50)primary key
    ,TenDV nvarchar(50)
@@ -97,7 +118,7 @@ create table SanhTiec
    ,TenST nvarchar(50)
    ,TrangThai nvarchar(50)
 )
-go
+go*/
 --Lay danh sach nhan vien:
 create proc sp_LayDSNV
 as 

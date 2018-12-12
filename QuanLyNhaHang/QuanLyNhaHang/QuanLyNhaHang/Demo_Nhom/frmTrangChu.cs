@@ -152,30 +152,10 @@ namespace QuanLyNhaHang.Demo_Nhom
                 frmTimKiemNhanVien.Show();
             }
         }
-
-        private void quảnLýKháchHàngToolStripMenuItem_BackColorChanged(object sender, EventArgs e)
+        private void xuấtHóaĐơnToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            frmHoaDon fr = new frmHoaDon();
+            fr.Show();
         }
-
-        private void menuHT_Click(object sender, EventArgs e)
-        {
-
-        }
-
-       
-
-      
-
-
-        //private void menuDangNhap_Click(object sender, EventArgs e)
-        //{
-        //    frmDangNhap frmDN = new frmDangNhap();
-        //    this.Hide();
-        //    frmDN.ShowDialog();
-        //    this.Show();
-        //}
-
-        
     }
 }

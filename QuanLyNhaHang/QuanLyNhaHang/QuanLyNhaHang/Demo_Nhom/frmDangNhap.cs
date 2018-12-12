@@ -20,14 +20,14 @@ namespace QuanLyNhaHang.Demo_Nhom
         //Hàm đăng nhập
         private void btnDangNhap_Click(object sender, EventArgs e)
         {
-            SqlConnection conn = new SqlConnection(@"Data Source=WIN-2AC73DTHV0V\SQLEXPRESS01;Initial Catalog=QuanLyNhaHang;Integrated Security=True");
+            SqlConnection conn = new SqlConnection(@"Data Source=HVGIANG\SQLEXPRESS;Initial Catalog=QLNHTC;Integrated Security=True");
             try{
                 //Mở keest nối
                 conn.Open();
                 //khai báo biến
                 string tk = txtTaiKhoan.Text;
                 string mk = txtMatKhau.Text;
-                string  sql = "Select * from Login Where Username = '" + tk + "' and Passworld = '" + mk +"'";
+                string sql = "Select * from Login where Username = '" + tk + "' and Pass = '" + mk + "'";
                 SqlCommand cmd = new SqlCommand(sql, conn);
 
                 //Lấy dữ liệu về từ câu lệnh
@@ -48,7 +48,8 @@ namespace QuanLyNhaHang.Demo_Nhom
                     MessageBox.Show("Đăng Nhập Thất Bại Mời Bạn Đăng Nhập Lại","Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                 }
                 
-            }catch(Exception ex)
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show("Lỗi Kết Nối");
             }
@@ -66,6 +67,11 @@ namespace QuanLyNhaHang.Demo_Nhom
         private void btnThoat_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -34,9 +34,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnThoat3 = new System.Windows.Forms.Button();
             this.frmTKNV = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.btnThoat3 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataHienThiTTNV)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -104,6 +104,17 @@
             this.panel1.Size = new System.Drawing.Size(597, 52);
             this.panel1.TabIndex = 0;
             // 
+            // btnThoat3
+            // 
+            this.btnThoat3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.btnThoat3.Location = new System.Drawing.Point(475, 12);
+            this.btnThoat3.Name = "btnThoat3";
+            this.btnThoat3.Size = new System.Drawing.Size(96, 23);
+            this.btnThoat3.TabIndex = 5;
+            this.btnThoat3.Text = "Thoát";
+            this.btnThoat3.UseVisualStyleBackColor = true;
+            this.btnThoat3.Click += new System.EventHandler(this.btnThoat3_Click);
+            // 
             // frmTKNV
             // 
             this.frmTKNV.AutoSize = true;
@@ -123,17 +134,6 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(597, 31);
             this.panel2.TabIndex = 5;
-            // 
-            // btnThoat3
-            // 
-            this.btnThoat3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.btnThoat3.Location = new System.Drawing.Point(475, 12);
-            this.btnThoat3.Name = "btnThoat3";
-            this.btnThoat3.Size = new System.Drawing.Size(96, 23);
-            this.btnThoat3.TabIndex = 5;
-            this.btnThoat3.Text = "Thoát";
-            this.btnThoat3.UseVisualStyleBackColor = true;
-            this.btnThoat3.Click += new System.EventHandler(this.btnThoat3_Click);
             // 
             // frmTimKiemNhanVien
             // 

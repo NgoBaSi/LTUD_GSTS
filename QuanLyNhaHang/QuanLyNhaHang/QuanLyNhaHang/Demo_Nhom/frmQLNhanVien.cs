@@ -76,10 +76,10 @@ namespace QuanLyNhaHang.Demo_Nhom
         //kiểm tra và thông báo cho người dùng nhập
         public bool CheckData()
         {
-            if (string.IsNullOrEmpty(txtTK.Text))
+            if (string.IsNullOrEmpty(txtMaNV.Text))
             {
                 MessageBox.Show(" Bạn chưa nhập tài khoản", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                txtTK.Focus();
+                txtMaNV.Focus();
                 return false;
             }
             if (string.IsNullOrEmpty(txtSDT.Text))
@@ -100,31 +100,36 @@ namespace QuanLyNhaHang.Demo_Nhom
                 txtDC.Focus();
                 return false;
             }
-            if (string.IsNullOrEmpty(txtMK.Text))
+            if (string.IsNullOrEmpty(txtGioiTinh.Text))
             {
                 MessageBox.Show(" Bạn chưa nhập tài khoản", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                txtMK.Focus();
+                txtGioiTinh.Focus();
                 return false;
             }
-            if (string.IsNullOrEmpty(txtNLMK.Text))
+            if (string.IsNullOrEmpty(txtChucVu.Text))
             {
                 MessageBox.Show(" Bạn chưa nhập tài khoản", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                txtNLMK.Focus();
+                txtChucVu.Focus();
                 return false;
             }
-            if (string.IsNullOrEmpty(txtCV.Text))
+            if (string.IsNullOrEmpty(txtLuong.Text))
             {
                 MessageBox.Show(" Bạn chưa nhập tài khoản", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                txtCV.Focus();
+                txtLuong.Focus();
                 return false;
             }
-            if (string.IsNullOrEmpty(txtTrangThai.Text))
+            if (string.IsNullOrEmpty(txtGhiChu.Text))
             {
                 MessageBox.Show(" Bạn chưa nhập tài khoản", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                txtTrangThai.Focus();
+                txtGhiChu.Focus();
                 return false;
             }
             return true;
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
         }
 
         //private void btnThem_Click(object sender, EventArgs e)

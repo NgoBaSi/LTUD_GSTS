@@ -27,5 +27,10 @@ namespace QuanLyNhaHang.Demo_Nhom
             this.qLiNhanVienTableAdapter.Fill(this.quanLyNhaHangDataSet.QLiNhanVien);
 
         }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }

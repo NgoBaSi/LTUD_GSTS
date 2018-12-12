@@ -82,5 +82,30 @@ namespace QuanLyNhaHang.Demo_Nhom
         {
 
         }
+
+        private void txtPhiDichVu_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtChiPhi_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void frmHopDongDatTiec_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void rdbBia_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void rdbHoa_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

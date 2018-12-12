@@ -25,5 +25,25 @@ namespace QuanLyNhaHang.Demo_Nhom
         {
 
         }
+
+        private void lblHoaDon_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dtNgayLap_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtHoTenKH_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }
