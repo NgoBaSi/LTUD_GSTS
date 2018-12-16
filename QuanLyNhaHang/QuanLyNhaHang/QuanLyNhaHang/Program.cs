@@ -15,7 +15,7 @@ namespace QuanLyNhaHang.Demo_Nhom
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmDangNhap());
+            Application.Run(new frmQLNhanVien());
         }
     }
 }

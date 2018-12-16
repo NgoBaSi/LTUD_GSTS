@@ -48,6 +48,11 @@ namespace QuanLyNhaHang.Demo_Nhom
 
         }
 
+        private void frmTraCuuHopDong_Load(object sender, EventArgs e)
+        {
+            
+        }
+
        
     }
 }

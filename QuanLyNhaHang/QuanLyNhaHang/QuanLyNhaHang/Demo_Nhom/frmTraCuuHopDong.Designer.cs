@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -37,10 +38,17 @@
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dataHienThiTTHĐ = new System.Windows.Forms.DataGridView();
+            this.thongTinHopDongBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            
+            this.khachHangBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataHienThiTTHĐ)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.thongTinHopDongBindingSource)).BeginInit();
+     
+            ((System.ComponentModel.ISupportInitialize)(this.khachHangBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -129,11 +137,14 @@
             // 
             // dataHienThiTTHĐ
             // 
+            this.dataHienThiTTHĐ.AllowUserToAddRows = false;
+            this.dataHienThiTTHĐ.AllowUserToDeleteRows = false;
             this.dataHienThiTTHĐ.BackgroundColor = System.Drawing.Color.Azure;
             this.dataHienThiTTHĐ.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataHienThiTTHĐ.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataHienThiTTHĐ.Location = new System.Drawing.Point(3, 18);
             this.dataHienThiTTHĐ.Name = "dataHienThiTTHĐ";
+            this.dataHienThiTTHĐ.ReadOnly = true;
             this.dataHienThiTTHĐ.Size = new System.Drawing.Size(785, 166);
             this.dataHienThiTTHĐ.TabIndex = 0;
             // 
@@ -150,12 +161,16 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmTraCuuHopDong";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmTraCuuHopDong_FormClosing);
+            this.Load += new System.EventHandler(this.frmTraCuuHopDong_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataHienThiTTHĐ)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.thongTinHopDongBindingSource)).EndInit();
+       
+            ((System.ComponentModel.ISupportInitialize)(this.khachHangBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -171,5 +186,10 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.DataGridView dataHienThiTTHĐ;
         private System.Windows.Forms.Button btnThoat4;
+
+        private System.Windows.Forms.BindingSource khachHangBindingSource;
+
+        private System.Windows.Forms.BindingSource thongTinHopDongBindingSource;
+        
     }
 }

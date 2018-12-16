@@ -13,6 +13,21 @@
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <TargetFrameworkProfile>Client</TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
     <PlatformTarget>x86</PlatformTarget>
@@ -34,8 +49,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.Synchronization, Version=1.0.0.0" />
+    <Reference Include="Microsoft.Synchronization.Data, Version=2.0.0.0" />
+    <Reference Include="Microsoft.Synchronization.Data.Server, Version=2.0.0.0" />
+    <Reference Include="Microsoft.Synchronization.Data.SqlServerCe, Version=2.0.0.0" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.SqlServerCe, Version=3.5.1.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
+    <Reference Include="System.Transactions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -101,15 +122,15 @@
     <Compile Include="Demo_Nhom\QLiNhanvien.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="QuanLyNhaHangDataSet.Designer.cs">
+    <Compile Include="QLNhaHangTiecCuoiCache.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>QuanLyNhaHangDataSet.xsd</DependentUpon>
+      <DependentUpon>QLNhaHangTiecCuoiCache.sync</DependentUpon>
     </Compile>
-    <Compile Include="QuanLyNhaHangDataSet1.Designer.cs">
+    <Compile Include="QLNhaHangTiecCuoiDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>QuanLyNhaHangDataSet1.xsd</DependentUpon>
+      <DependentUpon>QLNhaHangTiecCuoiDataSet.xsd</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Demo_Nhom\frmDangNhap.resx">
       <DependentUpon>frmDangNhap.cs</DependentUpon>
@@ -155,30 +176,24 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="QuanLyNhaHangDataSet.xsc">
-      <DependentUpon>QuanLyNhaHangDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="QuanLyNhaHangDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>QuanLyNhaHangDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="QuanLyNhaHangDataSet.xss">
-      <DependentUpon>QuanLyNhaHangDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="QuanLyNhaHangDataSet1.xsc">
-      <DependentUpon>QuanLyNhaHangDataSet1.xsd</DependentUpon>
-    </None>
-    <None Include="QuanLyNhaHangDataSet1.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>QuanLyNhaHangDataSet1.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="QuanLyNhaHangDataSet1.xss">
-      <DependentUpon>QuanLyNhaHangDataSet1.xsd</DependentUpon>
-    </None>
   </ItemGroup>
   <ItemGroup>
+    <None Include="QLNhaHangTiecCuoiCache.sync">
+      <Generator>MSDataSyncGenerator</Generator>
+      <LastGenOutput>QLNhaHangTiecCuoiCache.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="QLNhaHangTiecCuoiDataSet.xsc">
+      <DependentUpon>QLNhaHangTiecCuoiDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="QLNhaHangTiecCuoiDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>QLNhaHangTiecCuoiDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="QLNhaHangTiecCuoiDataSet.xss">
+      <DependentUpon>QLNhaHangTiecCuoiDataSet.xsd</DependentUpon>
+    </None>
     <None Include="Resources\img11.jpg" />
   </ItemGroup>
   <ItemGroup>
@@ -186,6 +201,43 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\splash.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\undo %283%29.png" />
+    <None Include="Resources\lg.png" />
+    <None Include="Resources\bghome.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0,Profile=Client">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 Client Profile %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.SQL.Server.Compact.3.5">
+      <Visible>False</Visible>
+      <ProductName>SQL Server Compact 3.5 SP2</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="QLNhaHangTiecCuoi.sdf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

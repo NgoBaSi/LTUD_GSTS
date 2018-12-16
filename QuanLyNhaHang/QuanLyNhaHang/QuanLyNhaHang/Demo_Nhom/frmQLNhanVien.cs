@@ -21,6 +21,19 @@ namespace QuanLyNhaHang.Demo_Nhom
             InitializeComponent();
           // bllNV = new NhanVienBLL();
         }
+        SqlConnection cnn = new SqlConnection(@"Data Source=HVGIANG\SQLEXPRESS;Initial Catalog=QLNhaHangTiecCuoi;Integrated Security=True");
+        private void ketnoicsdl()
+        {
+            cnn.Open();
+            string sql = "select * from NhanVien";  // lay het du lieu trong bang sinh vien
+            SqlCommand com = new SqlCommand(sql, cnn); //bat dau truy van
+            com.CommandType = CommandType.Text;
+            SqlDataAdapter da = new SqlDataAdapter(com); //chuyen du lieu ve
+            DataTable dt = new DataTable(); //tạo một kho ảo để lưu trữ dữ liệu
+            da.Fill(dt);  // đổ dữ liệu vào kho
+            cnn.Close();  // đóng kết nối
+            dataHienThi.DataSource = dt; //đổ dữ liệu vào datagridview
+        }
 
         //Hàm Thoát 
         private void btnThoat1_Click(object sender, EventArgs e)
@@ -54,22 +67,16 @@ namespace QuanLyNhaHang.Demo_Nhom
             this.Show();
         }
 
-        //Hàm ShowAll Tất cả nhân viên từ sql ra form
-        //public void ShowAllNhanVien()
-        //{
-        //    DataTable dt = bllNV.getAllNhanVien();
-        //    dataHienThi.DataSource = dt;
-        //}
-
-
-
-
         //Hàm Lấy cở sở dữ liệu
         private void frmQLNhanVien_Load(object sender, EventArgs e)
         {
-            //ShowAllNhanVien();
-            this.qLiNhanVienTableAdapter.Fill(this.quanLyNhaHangDataSet.QLiNhanVien);
-
+            // TODO: This line of code loads data into the 'qLNhaHangTiecCuoiDataSet.NhanVien' table. You can move, or remove it, as needed.
+            //this.nhanVienTableAdapter.Fill(this.qLNhaHangTiecCuoiDataSet.NhanVien);
+            // TODO: This line of code loads data into the 'qLNhaHangTiecCuoiDataSet.sp_LayDSNhanVien' table. You can move, or remove it, as needed.
+            this.sp_LayDSNhanVienTableAdapter.Fill(this.qLNhaHangTiecCuoiDataSet.sp_LayDSNhanVien);
+            // TODO: This line of code loads data into the 'qLNhaHangTiecCuoiDataSet1.NhanVien' table. You can move, or remove it, as needed.
+           
+            ketnoicsdl();
         }
 
 
@@ -126,38 +133,87 @@ namespace QuanLyNhaHang.Demo_Nhom
             }
             return true;
         }
-
-        private void groupBox1_Enter(object sender, EventArgs e)
+        int index;
+        private void dataHienThi_Click(object sender, EventArgs e)
         {
-
+            
         }
 
-        //private void btnThem_Click(object sender, EventArgs e)
-        //{
-        //    if (CheckData())
-        //    {
-        //        QLiNhanvien nv = new QLiNhanvien();
-        //        nv.TenNV = txtTenNV.Text;
-        //        nv.TaiKhoan = txtTK.Text;
-        //        nv.MatKhau = txtMK.Text;
-        //        nv.NLMatKhau = txtNLMK.Text;
-        //        nv.SDT = Int32.Parse(txtSDT.Text);
-        //        nv.DiaChi = txtDC.Text;
-        //        nv.ChucVu = txtCV.Text;
-        //        nv.TrangThai = txtTrangThai.Text;
-
-        //        if (bllNV.InserNhanVien(nv))
-        //        {
-        //            //ShowAllNhanVien();
-
-        //            this.qLiNhanVienTableAdapter.Fill(this.quanLyNhaHangDataSet.QLiNhanVien);
-        //        }
-        //        else
-        //        {
-        //            MessageBox.Show("Đã có lỗi xảy ra, Xin thử lại sao nhé", "Thông Báo Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Stop);
-        //        }
-        //    }
-        //}
+        private void dataHienThi_Click_1(object sender, EventArgs e)
+        {
+            index = dataHienThi.CurrentRow.Index;
+            txtMaNV.Text = dataHienThi.Rows[index].Cells[0].Value.ToString();
+            txtTenNV.Text = dataHienThi.Rows[index].Cells[1].Value.ToString();
+            txtGioiTinh.Text = dataHienThi.Rows[index].Cells[2].Value.ToString();
+            txtSDT.Text = dataHienThi.Rows[index].Cells[3].Value.ToString();
+            txtDC.Text = dataHienThi.Rows[index].Cells[4].Value.ToString();
+            txtChucVu.Text = dataHienThi.Rows[index].Cells[5].Value.ToString();
+            txtLuong.Text = dataHienThi.Rows[index].Cells[6].Value.ToString();
+            txtGhiChu.Text = dataHienThi.Rows[index].Cells[7].Value.ToString();
+        }
+        string them;
+        private void btnThem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                SqlConnection cnn = new SqlConnection(@"Data Source=HVGIANG\SQLEXPRESS;Initial Catalog=QLNhaHangTiecCuoi;Integrated Security=True");
+                cnn.Open();
+                them = "INSERT INTO NhanVien VALUES('" + txtMaNV.Text + "','" + txtTenNV.Text + "','" + txtGioiTinh.Text + "','" + txtSDT.Text + "','" + txtDC.Text + "','" + txtChucVu.Text + "','" + txtLuong.Text + "','"+txtGhiChu.Text+"')";
+                SqlCommand commandthem = new SqlCommand(them, cnn);
+                commandthem.ExecuteNonQuery();
+                ketnoicsdl();
+            }
+            catch
+            {
+                MessageBox.Show("Lỗi, không thêm được.");
+            }
+            finally
+            {
+                cnn.Close();
+            }
+        }
+        string xoa;
+        private void btnXoa_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                SqlConnection cnn = new SqlConnection(@"Data Source=HVGIANG\SQLEXPRESS;Initial Catalog=QLNhaHangTiecCuoi;Integrated Security=True");
+                cnn.Open();
+                xoa = "delete NhanVien where MaNV = '" + txtMaNV.Text + "'";
+                SqlCommand commandxoa = new SqlCommand(xoa, cnn);
+                commandxoa.ExecuteNonQuery();
+                ketnoicsdl();
+            }
+            catch
+            {
+                MessageBox.Show("Lỗi, không xóa được.");
+            }
+            finally
+            {
+                cnn.Close();
+            }
+        }
+        string sua;
+        private void btnSua_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                SqlConnection cnn = new SqlConnection(@"Data Source=HVGIANG\SQLEXPRESS;Initial Catalog=QLNhaHangTiecCuoi;Integrated Security=True");
+                cnn.Open();
+                sua = "update NhanVien set TenNV = '"+txtTenNV.Text+"',GioiTinh = '"+txtGioiTinh.Text+"',DiaChi = '"+txtSDT.Text+"',SDT = '"+txtDC+"',ChucVu = '"+txtChucVu+"',Luong = '"+txtLuong+"',GhiChu = '"+txtGhiChu+"' where MaNV = '"+txtMaNV.Text+"'";
+                SqlCommand commandsua = new SqlCommand(sua, cnn);
+                commandsua.ExecuteNonQuery();
+                ketnoicsdl();
+            }
+            catch
+            {
+                MessageBox.Show("Lỗi, không sửa được.");
+            }
+            finally
+            {
+                cnn.Close();
+            }
+        }
 
     }
 }

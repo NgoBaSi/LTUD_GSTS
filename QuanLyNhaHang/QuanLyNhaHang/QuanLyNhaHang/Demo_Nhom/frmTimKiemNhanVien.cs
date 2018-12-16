@@ -37,5 +37,12 @@ namespace QuanLyNhaHang.Demo_Nhom
         {
             this.Close();
         }
+
+        private void frmTimKiemNhanVien_Load(object sender, EventArgs e)
+        {
+            // TODO: This line of code loads data into the 'qLNhaHangTiecCuoiDataSet1.NhanVien' table. You can move, or remove it, as needed.
+            
+
+        }
     }
 }

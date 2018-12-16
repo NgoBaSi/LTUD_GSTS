@@ -30,10 +30,10 @@
         {
             this.label2 = new System.Windows.Forms.Label();
             this.txtTaiKhoan = new System.Windows.Forms.TextBox();
-            this.btnDangNhap = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.txtMatKhau = new System.Windows.Forms.TextBox();
             this.btnThoat = new System.Windows.Forms.Button();
+            this.btnDangNhap = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -62,18 +62,6 @@
             this.txtTaiKhoan.Size = new System.Drawing.Size(156, 23);
             this.txtTaiKhoan.TabIndex = 2;
             // 
-            // btnDangNhap
-            // 
-            this.btnDangNhap.BackColor = System.Drawing.Color.Lime;
-            this.btnDangNhap.ForeColor = System.Drawing.Color.Red;
-            this.btnDangNhap.Location = new System.Drawing.Point(53, 139);
-            this.btnDangNhap.Name = "btnDangNhap";
-            this.btnDangNhap.Size = new System.Drawing.Size(112, 45);
-            this.btnDangNhap.TabIndex = 5;
-            this.btnDangNhap.Text = "Đăng Nhập";
-            this.btnDangNhap.UseVisualStyleBackColor = false;
-            this.btnDangNhap.Click += new System.EventHandler(this.btnDangNhap_Click);
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -84,7 +72,6 @@
             this.label3.Size = new System.Drawing.Size(82, 18);
             this.label3.TabIndex = 3;
             this.label3.Text = "Mật Khẩu:";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // txtMatKhau
             // 
@@ -102,11 +89,23 @@
             this.btnThoat.ForeColor = System.Drawing.Color.Red;
             this.btnThoat.Location = new System.Drawing.Point(195, 139);
             this.btnThoat.Name = "btnThoat";
-            this.btnThoat.Size = new System.Drawing.Size(112, 45);
+            this.btnThoat.Size = new System.Drawing.Size(99, 45);
             this.btnThoat.TabIndex = 6;
             this.btnThoat.Text = "Thoát";
             this.btnThoat.UseVisualStyleBackColor = false;
             this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
+            // 
+            // btnDangNhap
+            // 
+            this.btnDangNhap.BackColor = System.Drawing.Color.Lime;
+            this.btnDangNhap.ForeColor = System.Drawing.Color.Red;
+            this.btnDangNhap.Location = new System.Drawing.Point(64, 139);
+            this.btnDangNhap.Name = "btnDangNhap";
+            this.btnDangNhap.Size = new System.Drawing.Size(99, 45);
+            this.btnDangNhap.TabIndex = 5;
+            this.btnDangNhap.Text = "Đăng Nhập";
+            this.btnDangNhap.UseVisualStyleBackColor = false;
+            this.btnDangNhap.Click += new System.EventHandler(this.btnDangNhap_Click);
             // 
             // label1
             // 
@@ -153,10 +152,10 @@
 
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtTaiKhoan;
-        private System.Windows.Forms.Button btnDangNhap;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtMatKhau;
         private System.Windows.Forms.Button btnThoat;
+        private System.Windows.Forms.Button btnDangNhap;
         private System.Windows.Forms.Label label1;
     }
 }

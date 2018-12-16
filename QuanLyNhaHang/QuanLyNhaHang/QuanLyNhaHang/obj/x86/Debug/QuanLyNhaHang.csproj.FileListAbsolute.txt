@@ -54,3 +54,4 @@ C:\Users\Admin\Documents\GitHub\LTUD_GSTS\QuanLyNhaHang\QuanLyNhaHang\QuanLyNhaH
 C:\Users\Admin\Documents\GitHub\LTUD_GSTS\QuanLyNhaHang\QuanLyNhaHang\QuanLyNhaHang\obj\x86\Debug\QuanLyNhaHang.Demo_Nhom.frmTrangChu.resources
 C:\Users\Admin\Documents\GitHub\LTUD_GSTS\QuanLyNhaHang\QuanLyNhaHang\QuanLyNhaHang\obj\x86\Debug\QuanLyNhaHang.Properties.Resources.resources
 C:\Users\Admin\Documents\GitHub\LTUD_GSTS\QuanLyNhaHang\QuanLyNhaHang\QuanLyNhaHang\obj\x86\Debug\QuanLyNhaHang.csproj.GenerateResource.Cache
+C:\Users\Admin\Documents\GitHub\LTUD_GSTS\QuanLyNhaHang\QuanLyNhaHang\QuanLyNhaHang\bin\Debug\QLNhaHangTiecCuoi.sdf

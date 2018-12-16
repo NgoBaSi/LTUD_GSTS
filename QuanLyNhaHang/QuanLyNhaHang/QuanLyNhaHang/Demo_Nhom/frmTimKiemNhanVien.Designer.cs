@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.button1 = new System.Windows.Forms.Button();
             this.dataHienThiTTNV = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -37,7 +38,10 @@
             this.btnThoat3 = new System.Windows.Forms.Button();
             this.frmTKNV = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+     
             ((System.ComponentModel.ISupportInitialize)(this.dataHienThiTTNV)).BeginInit();
+       
+
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -55,15 +59,17 @@
             // 
             // dataHienThiTTNV
             // 
+            this.dataHienThiTTNV.AllowUserToAddRows = false;
+            this.dataHienThiTTNV.AllowUserToDeleteRows = false;
             this.dataHienThiTTNV.BackgroundColor = System.Drawing.Color.Azure;
             this.dataHienThiTTNV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataHienThiTTNV.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataHienThiTTNV.GridColor = System.Drawing.SystemColors.ActiveCaption;
             this.dataHienThiTTNV.Location = new System.Drawing.Point(3, 21);
             this.dataHienThiTTNV.Name = "dataHienThiTTNV";
+            this.dataHienThiTTNV.ReadOnly = true;
             this.dataHienThiTTNV.Size = new System.Drawing.Size(591, 170);
             this.dataHienThiTTNV.TabIndex = 1;
-            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.dataHienThiTTNV);
@@ -148,6 +154,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmTimKiemNhanVien";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmTimKiemNhanVien_FormClosing);
+            this.Load += new System.EventHandler(this.frmTimKiemNhanVien_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataHienThiTTNV)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);

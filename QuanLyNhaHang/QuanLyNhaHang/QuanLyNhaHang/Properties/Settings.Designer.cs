@@ -26,11 +26,31 @@ namespace QuanLyNhaHang.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=WIN-2AC73DTHV0V\\SQLEXPRESS01;Initial Catalog=QuanLyNhaHang;Integrated" +
-            " Security=True")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=HVGIANG\\SQLEXPRESS;Initial Catalog=QLNhaHangTiecCuoi;Integrated Secur" +
+            "ity=True")]
         public string QuanLyNhaHangConnectionString {
             get {
                 return ((string)(this["QuanLyNhaHangConnectionString"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=|DataDirectory|\\QLNhaHangTiecCuoi.sdf;Max Database Size=2047")]
+        public string ClientQLNhaHangTiecCuoiConnectionString {
+            get {
+                return ((string)(this["ClientQLNhaHangTiecCuoiConnectionString"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=|DataDirectory|\\QLNhaHangTiecCuoi1.sdf;Max Database Size=2047")]
+        public string ClientQLNhaHangTiecCuoi1ConnectionString {
+            get {
+                return ((string)(this["ClientQLNhaHangTiecCuoi1ConnectionString"]));
             }
         }
     }
